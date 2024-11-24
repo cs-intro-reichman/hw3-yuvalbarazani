@@ -6,12 +6,14 @@
 public class Algebra {
 	public static void main(String args[]) {
 	    // Tests some of the operations
-	    System.out.println(plus(2,-4));   // 2 + 3
-	    System.out.println(minus(7,2));  // 7 - 2
-   		System.out.println(minus(2,7));  // 2 - 7
- 		System.out.println(times(3,4));  // 3 * 4
+	    System.out.println(plus(2,-4 ));   // 2 + 3
+	    System.out.println(minus(7,-2));  // 7 - 2
+   		System.out.println(minus(-2,-7));  // 2 - 7
+ 		System.out.println(times(-3,4)); 
+		 System.out.println(times(-3,-4));
+		 System.out.println(times(3,-4));
    		System.out.println(plus(2,times(4,2)));  // 2 + 4 * 2
-   		System.out.println(pow(5,3));      // 5^3
+   		System.out.println(pow(-5,3));      // 5^3
    		System.out.println(pow(3,5));      // 3^5
    		System.out.println(div(12,3));   // 12 / 3    
    		System.out.println(div(5,5));    // 5 / 5  
@@ -46,9 +48,15 @@ public class Algebra {
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
 		int dif = x1;
+		if(x2<0){
+			for(int i=0;i>x2;i--){
+				dif++;
+			}
+		}
 		for(int i = 0 ; i < x2 ; i++){
 			dif--;
 		}
+		
 		return dif;
 		}
 	
@@ -56,10 +64,19 @@ public class Algebra {
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
 		int mult = 0;
+		if(x1<0){
+			for(int i=0;i>x1;i--){
+				mult = minus(mult,x2);
+			}
+		}
+		else{
+
 		for(int i=0 ; i < x1; i++){
 			mult = plus(mult,x2);
 		}
+	}
 		return mult;
+	
 	}
 
 	// Returns x^n (for n >= 0)
