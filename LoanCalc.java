@@ -52,6 +52,7 @@ public class LoanCalc {
 		}
 
 		return payment;
+		
     }
     
     // Uses bisection search to compute an approximation of the periodical payment 
