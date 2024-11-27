@@ -72,7 +72,7 @@ public class Anagram {
 		str = str.toLowerCase();
 
 		for(int i = 0; i<str.length();i++){
-			if(str.charAt(i) > 'z' || str.charAt(i) < 'a'){
+			if((str.charAt(i) > 'z' || str.charAt(i) < 'a') && str.charAt(i) != ' ') {
 
 				str = str.substring(0, i) + str.substring(i+1, str.length()); // removes char at index i from the string 
 				i--;
