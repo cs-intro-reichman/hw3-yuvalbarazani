@@ -29,8 +29,8 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		str1 = preProcess(str1);
-		str2 = preProcess(str2);
+		str1 = preProcess2(str1);
+		str2 = preProcess2(str2);
 		
 		if(str1.length()!=str2.length()){
 			return false;
@@ -80,6 +80,21 @@ public class Anagram {
 		}
 		return str;
 	} 
+	// same as preProcess function but without spaces
+	private static String preProcess2(String str) {
+	str = str.toLowerCase();
+
+	for(int i = 0; i<str.length();i++){
+		if(str.charAt(i) > 'z' || str.charAt(i) < 'a'){
+
+			str = str.substring(0, i) + str.substring(i+1, str.length()); // removes char at index i from the string 
+			i--;
+		}
+	}
+		
+	return str;
+	}
+ 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
